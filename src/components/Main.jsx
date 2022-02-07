@@ -1,9 +1,9 @@
-import './Main.css';
+import s from './Main.module.css';
 import Profile from './Profile';
 
 const Main = () => {
   return (
-    <div className='main'>
+    <div className={s.main}>
       <Profile />
     </div>
   );
