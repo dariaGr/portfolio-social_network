@@ -1,9 +1,5 @@
-.main{
+.main {
   grid-area: main;
   background-color: #274472;
   color: #fff;
-}
-
-.main-background img {
-  max-width: 100%;
 }

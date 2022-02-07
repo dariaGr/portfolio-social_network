@@ -1,9 +1,10 @@
 import s from './Header.module.css';
+import Logo from '../assets/logo.png';
 
 const Header = () => {
     return (
         <header className={s.header}>
-            <img src='https://logodix.com/logo/1961524.png' />
+            <a href='#'><img src={Logo} /></a>
         </header>
     );
 };

@@ -1,4 +1,8 @@
-.aside{
+.aside {
   grid-area: aside;
-  background-color: #BFD7ED;
+  background-color: #bfd7ed;
+}
+
+.item.active {
+  color: #ffd700;
 }

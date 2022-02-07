@@ -5,7 +5,7 @@ const Aside = () => {
         <aside className={s.aside}>
             <nav className={s.nav}>
                 <ul>
-                    <li className={s.item}>
+                    <li className={`${s.item} ${s.active}`}>
                         <a>Profile</a>
                     </li>
                     <li className={s.item}>
