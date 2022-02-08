@@ -4,14 +4,6 @@
   align-items: center;
 }
 
-.bio img {
-  max-width: 150px;
-  max-height: 150px;
-  border-radius: 50%;
-  margin-right: 50px;
-  cursor: pointer;
-}
-
 .name {
   margin-bottom: 20px;
   font-family: "Abril Fatface";

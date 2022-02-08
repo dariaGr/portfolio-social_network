@@ -1,10 +1,10 @@
+import Avatar from '../Avatar/Avatar';
 import s from './ProfileBio.module.css';
-import Avatar from './../../../../assets/avatar.jpg';
 
 const ProfileBio = () => {
     return (
         <div className={s.bio}>
-            <img src={Avatar} alt="avatar" />
+            <Avatar />
             <div className={s.description}>
                 <h1 className={s.name}>Daria Grebenjuk</h1>
                <ul className={s.list}>

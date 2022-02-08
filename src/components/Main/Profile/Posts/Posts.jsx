@@ -6,7 +6,7 @@ const Posts = () => {
     return (
         <div className={s.posts}>
              <MyPosts />
-            <div>
+            <div className={s.oldPosts}>
                 <Post />
                 <Post />
                 <Post />
