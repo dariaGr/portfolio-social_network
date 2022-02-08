@@ -1,5 +1,5 @@
 import s from './ProfileBio.module.css';
-import Avatar from '../assets/avatar.jpg';
+import Avatar from './../../assets/avatar.jpg';
 
 const ProfileBio = () => {
     return (
