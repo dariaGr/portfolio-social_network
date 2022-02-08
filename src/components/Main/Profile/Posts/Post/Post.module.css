@@ -4,4 +4,10 @@
 
 .description {
   display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.likeButton {
+  padding: 8px;
 }

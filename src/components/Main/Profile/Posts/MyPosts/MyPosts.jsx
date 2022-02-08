@@ -1,4 +1,4 @@
-import s from './MyPosts';
+import s from './MyPosts.module.css';
 
 const MyPosts = () => {
     return (
@@ -8,7 +8,7 @@ const MyPosts = () => {
                  <textarea placeholder='your news...'></textarea>
             </div>
             <div>
-                 <button type='submit'>Send</button>
+                 <button className={s.sendButton} type='submit'>Send</button>
             </div>
          </div>
     );

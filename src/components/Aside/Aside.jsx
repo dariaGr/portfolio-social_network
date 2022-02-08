@@ -5,11 +5,11 @@ const Aside = () => {
         <aside className={s.aside}>
             <nav className={s.nav}>
                 <ul>
-                    <li className={`${s.item} ${s.active}`}>
-                        <a>Profile</a>
+                    <li className={s.item}>
+                        <a href="/profile">Profile</a>
                     </li>
                     <li className={s.item}>
-                        <a>Messages</a>
+                        <a href="/dialogs">Messages</a>
                     </li>
                     <li className={s.item}>
                         <a>News</a>

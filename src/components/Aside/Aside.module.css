@@ -12,7 +12,13 @@
   cursor: pointer;
 }
 
-.item.active {
+/* .item.active {
+  color: #1f1f1faf;
+  background-color: #b1b1b160;
+  border-radius: 10px;
+} */
+
+.item:hover {
   color: #1f1f1faf;
   background-color: #b1b1b160;
   border-radius: 10px;

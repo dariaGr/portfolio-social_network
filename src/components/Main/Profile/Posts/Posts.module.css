@@ -13,19 +13,6 @@ textarea {
   margin-bottom: 10px;
 }
 
-button {
-  padding: 8px 30px;
-  border-radius: 5px;
-  border: none;
-  font-family: inherit;
-  text-transform: uppercase;
-  float: right;
-  color: #0c1713;
-  background-color: #bfd7ed;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 .oldPosts {
   margin-top: 80px;
 }

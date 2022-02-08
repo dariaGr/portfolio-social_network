@@ -7,9 +7,8 @@ const Posts = () => {
         <div className={s.posts}>
              <MyPosts />
             <div className={s.oldPosts}>
-                <Post />
-                <Post />
-                <Post />
+                <Post message="Hi, how are you?" likesCount={17} />
+                <Post message="My first post!" likesCount={43} />
             </div>
         </div>
     );

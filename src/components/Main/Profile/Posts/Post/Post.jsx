@@ -1,14 +1,14 @@
 import Avatar from './../../../../Avatar/Avatar';
 import s from './Post.module.css';
 
-const Post = () => {
+const Post = ({message, likesCount}) => {
     return (
         <div className={s.item}>
             <div className={s.description}>
                 <Avatar />
-                <div className={s.post}>Post's text</div>
+                <div className={s.post}>{message}</div>
             </div>
-            <div>like</div>
+            <button className={s.likeButton}>like {likesCount}</button>
         </div>
     );
 };
