@@ -1,7 +1,7 @@
 import s from './Profile.module.css';
-import ProfileBg from './../../assets/profile-bg.jpg';
-import Posts from './../Posts/Posts';
-import ProfileBio from '../ProfileBio/ProfileBio';
+import ProfileBg from './../../../assets/profile-bg.jpg';
+import Posts from './Posts/Posts';
+import ProfileBio from './ProfileBio/ProfileBio';
 
 const Profile = () => {
     return (

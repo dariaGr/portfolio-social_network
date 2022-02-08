@@ -1,5 +1,5 @@
-import MyPosts from '../MyPosts/MyPosts';
-import Post from './../Post/Post';
+import MyPosts from './MyPosts/MyPosts';
+import Post from './Post/Post';
 import s from './Posts.module.css';
 
 const Posts = () => {
