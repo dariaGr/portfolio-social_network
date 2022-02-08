@@ -11,7 +11,7 @@ const Aside = () => {
                     <li className={s.item}>
                         <a>Messages</a>
                     </li>
-                    <li>
+                    <li className={s.item}>
                         <a>News</a>
                     </li>
                     <li className={s.item}>

@@ -1,0 +1,31 @@
+h2 {
+  margin-bottom: 20px;
+}
+
+textarea {
+  padding: 8px;
+  width: 100%;
+  min-height: 80px;
+  border-radius: 5px;
+  resize: vertical;
+  outline: none;
+  font-size: inherit;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 30px;
+  border-radius: 5px;
+  border: none;
+  font-family: inherit;
+  text-transform: uppercase;
+  float: right;
+  color: #0c1713;
+  background-color: #bfd7ed;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.newPost {
+  margin-bottom: 50px;
+}

@@ -1,8 +1,19 @@
 .aside {
   grid-area: aside;
   background-color: #bfd7ed;
+  border-radius: 10px;
+  font-family: Anton;
+  text-transform: uppercase;
+  color: #0c1713;
+}
+
+.item {
+  padding: 8px;
+  cursor: pointer;
 }
 
 .item.active {
-  color: #ffd700;
+  color: #1f1f1faf;
+  background-color: #b1b1b160;
+  border-radius: 10px;
 }

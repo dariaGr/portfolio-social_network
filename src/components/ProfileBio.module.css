@@ -1,0 +1,33 @@
+.bio img {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.bio {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.name {
+  margin-bottom: 20px;
+  font-family: "Abril Fatface";
+  font-size: 30px;
+  color: #bfd7ed;
+}
+
+.list li {
+  margin-bottom: 5px;
+  color: #e4eef7;
+}
+
+.list span {
+  font-weight: 600;
+}
+
+.list a:hover {
+  color: #5f9ea0;
+}
