@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import Avatar from '../Avatar/Avatar';
 import s from './Aside.module.css';
 
 const Aside = () => {
@@ -23,6 +24,12 @@ const Aside = () => {
                     </li>
                 </ul>
             </nav>
+            <div className={s.friends}>
+                <div>Friends</div>
+                <Avatar />
+                <Avatar />
+                <Avatar />
+            </div>
         </aside>
     );
 };

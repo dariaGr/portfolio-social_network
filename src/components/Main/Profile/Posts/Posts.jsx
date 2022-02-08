@@ -2,7 +2,7 @@ import MyPosts from './MyPosts/MyPosts';
 import Post from './Post/Post';
 import s from './Posts.module.css';
 
-const Posts = ({posts}) => {
+const Posts = ({ posts }) => {
     const postElements = posts.map( post => <Post message={post.message} likesCount={post.likesCount} />);
 
     return (

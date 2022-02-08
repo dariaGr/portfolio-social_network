@@ -1,7 +1,7 @@
 import Avatar from './../../../../Avatar/Avatar';
 import s from './Post.module.css';
 
-const Post = ({message, likesCount}) => {
+const Post = ({ message, likesCount }) => {
     return (
         <div className={s.item}>
             <div className={s.description}>

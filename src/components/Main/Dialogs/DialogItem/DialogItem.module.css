@@ -10,3 +10,8 @@
   margin: 5px;
   cursor: pointer;
 }
+
+.item img {
+  width: 50px;
+  border-radius: 50%;
+}
