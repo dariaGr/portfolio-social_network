@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 const posts = [
         {id: 1, message: 'Hi, how are you?', likesCount: 17},
-        {id: 2, message: 'My first post!', likesCount: 43},
+        {id: 2, message: 'My first post!', likesCount: 43}
 ];
 
 const dialogs = [
