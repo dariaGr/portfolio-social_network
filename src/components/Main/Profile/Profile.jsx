@@ -3,7 +3,7 @@ import ProfileBg from './../../../assets/profile-bg.jpg';
 import Posts from './Posts/Posts';
 import ProfileBio from './ProfileBio/ProfileBio';
 
-const Profile = () => {
+const Profile = ({posts}) => {
     return (
         <div className={s.profile}>
             <div className={s.background}>
@@ -11,7 +11,7 @@ const Profile = () => {
             </div>
             <div className={s.content}>
                 <ProfileBio />
-                <Posts />
+                <Posts posts={posts} />
             </div>
         </div>
     );
