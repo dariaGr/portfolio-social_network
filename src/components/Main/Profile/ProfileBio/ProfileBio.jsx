@@ -1,4 +1,4 @@
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../../../Avatar/Avatar';
 import s from './ProfileBio.module.css';
 
 const ProfileBio = () => {

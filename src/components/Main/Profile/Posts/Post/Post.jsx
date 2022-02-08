@@ -1,4 +1,4 @@
-import Avatar from '../../Avatar/Avatar';
+import Avatar from './../../../../Avatar/Avatar';
 import s from './Post.module.css';
 
 const Post = () => {
