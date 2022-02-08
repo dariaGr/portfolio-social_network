@@ -1,0 +1,12 @@
+/* .activeItem {
+  color: #0c1713;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+} */
+
+.item {
+  margin: 5px;
+  cursor: pointer;
+}

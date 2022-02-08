@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import s from './Aside.module.css';
 
 const Aside = () => {
@@ -6,19 +7,19 @@ const Aside = () => {
             <nav className={s.nav}>
                 <ul>
                     <li className={s.item}>
-                        <a href="/profile">Profile</a>
+                        <NavLink to="/profile" className={(navigationData) => navigationData.isActive ? s.activeLink : null}>Profile</NavLink>
                     </li>
                     <li className={s.item}>
-                        <a href="/dialogs">Messages</a>
+                        <NavLink to="/dialogs" className={(navigationData) => navigationData.isActive ? s.activeLink : null}>Messages</NavLink>
                     </li>
                     <li className={s.item}>
-                        <a>News</a>
+                        <NavLink to="/news" className={(navigationData) => navigationData.isActive ? s.activeLink : null}>News</NavLink>
                     </li>
                     <li className={s.item}>
-                        <a>Music</a>
+                        <NavLink to="/music" className={(navigationData) => navigationData.isActive ? s.activeLink : null}>Music</NavLink>
                     </li>
                     <li className={s.item}>
-                        <a>Settings</a>
+                        <NavLink to="/settings" className={(navigationData) => navigationData.isActive ? s.activeLink : null}>Settings</NavLink>
                     </li>
                 </ul>
             </nav>
