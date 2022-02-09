@@ -9,7 +9,7 @@ const DialogItem = ({ name, id }) => {
             <NavLink to={path}>
                 <img src={ProfilePic} alt="avatar" />
                 {name}
-                </NavLink>
+            </NavLink>
         </li>
     );
 };
