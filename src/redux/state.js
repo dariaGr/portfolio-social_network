@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => {
+    console.log('state');
+}
 
 const state = {
     profilePage: {
@@ -32,12 +34,12 @@ export const addMessage = () => {
     };
     state.dialogsPage.messages.push(newMessage);
     state.dialogsPage.newMessageText = '';
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 };
 
 export const updateNewMessageText = (newMessage) => {
     state.dialogsPage.newMessageText = newMessage;
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 };
 
 export const addPost = () => {
@@ -48,12 +50,16 @@ export const addPost = () => {
     }
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 };
 
 export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
+    rerenderEntireTree();
 };
  
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
+}
+
 export default state;
