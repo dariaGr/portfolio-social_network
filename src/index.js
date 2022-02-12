@@ -6,7 +6,7 @@ import state, {addMessage, addPost, updateNewMessageText, updateNewPostText, sub
 
 window.state = state;
 
-const rerenderEntireTree = () => {
+const rerenderEntireTree = (state) => {
     ReactDOM.render(
        <React.StrictMode>
          <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} addMessage={addMessage} updateNewMessageText={updateNewMessageText} />
@@ -15,6 +15,6 @@ const rerenderEntireTree = () => {
      );
 }
 
-  rerenderEntireTree(state);
+rerenderEntireTree(state);
 
-  subscribe(rerenderEntireTree);
+subscribe(rerenderEntireTree);
