@@ -1,7 +1,4 @@
 const store = {
-    _subscriber() {
-        console.log('no subscribers (observers)');
-    },
 
     _state: {
         profilePage: {
@@ -28,46 +25,48 @@ const store = {
         }
     },
 
+    _callSubscriber() {
+        console.log('State has been changed');
+    },
+
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
     getState() {
         return this._state;
     },
 
-    subscribe(observer) {
-        this._subscriber = observer;
-    },
-
-    addMessage(observer) {
+    addMessage() {
         const newMessage = {
             id: 4,
             text: this._state.dialogsPage.newMessageText
         };
         this._state.dialogsPage.messages.push(newMessage);
         this._state.dialogsPage.newMessageText = '';
-        this.subscribe(observer);
+        this._callSubscriber(this._state);
     },
 
-    updateNewMessageText(observer, newMessage) {
+    updateNewMessageText(newMessage) {
     this._state.dialogsPage.newMessageText = newMessage;
-    this.subscribe(observer);
+    this._callSubscriber(this._state);
     },
 
-    addPost(observer) {
+    addPost() {
     const newPost = {
         id: 5,
-        message: state.profilePage.newPostText,
+        message: this._state.profilePage.newPostText,
         likesCount: 0
     }
     this._state.profilePage.posts.push(newPost);
     this._state.profilePage.newPostText = '';
-    this.subscribe(observer);
+    this._callSubscriber(this._state);
     },
 
-    updateNewPostText(observer, newText){
+    updateNewPostText(newText){
     this._state.profilePage.newPostText = newText;
-    this.subscribe(observer);
+    this._callSubscriber(this._state);
     }
 };
-
-export const state = store.getState();
 
 export default store;

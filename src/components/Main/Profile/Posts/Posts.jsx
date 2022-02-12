@@ -7,7 +7,7 @@ const Posts = ({ state, store }) => {
 
     return (
         <div className={s.posts}>
-             <MyPosts store={store} />
+             <MyPosts store={store} state={state} />
             <div className={s.oldPosts}>
                 {postElements}
             </div>
