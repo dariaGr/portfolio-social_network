@@ -2,12 +2,12 @@ import MyPosts from './MyPosts/MyPosts';
 import Post from './Post/Post';
 import s from './Posts.module.css';
 
-const Posts = ({ posts, addPost, newPostText, updateNewPostText }) => {
-    const postElements = posts.map( post => <Post message={post.message} likesCount={post.likesCount} />);
+const Posts = ({ state, store }) => {
+    const postElements = state.profilePage.posts.map( post => <Post message={post.message} likesCount={post.likesCount} />);
 
     return (
         <div className={s.posts}>
-             <MyPosts addPost={addPost} newPostText={newPostText} updateNewPostText={updateNewPostText} />
+             <MyPosts store={store} />
             <div className={s.oldPosts}>
                 {postElements}
             </div>

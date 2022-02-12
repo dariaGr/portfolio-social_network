@@ -6,12 +6,12 @@ import News from './News/News';
 import Music from './Music/Music';
 import Settings from './Settings/Settings';
 
-const Main = ({ state, addPost, updateNewPostText, addMessage, updateNewMessageText }) => {
+const Main = ({ state, store }) => {
   return (
     <main className={s.main}>
       <Routes>
-        <Route path='/profile' element={<Profile posts={state.profilePage.posts} newPostText={state.profilePage.newPostText} addPost={addPost} updateNewPostText={updateNewPostText} />} />
-        <Route path='/dialogs' element={<Dialogs dialogs={state.dialogsPage.dialogs} messages={state.dialogsPage.messages} newMessageText={state.dialogsPage.newMessageText} addMessage={addMessage} updateNewMessageText={updateNewMessageText} />} />
+        <Route path='/profile' element={<Profile store={store} state={state} />} />
+        <Route path='/dialogs' element={<Dialogs store={store} state={state} />} />
         <Route path='/news' element={<News />} />
         <Route path='/music' element={<Music />} />
         <Route path='/settings' element={<Settings />} />
