@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import './index.css';
 import App from './App';
-import store, { state } from './redux';
+import store, { state } from './redux/state';
 // import state, {addMessage, addPost, updateNewMessageText, updateNewPostText, subscribe} from './redux/state';
 
 const rerenderEntireTree = (state) => {
