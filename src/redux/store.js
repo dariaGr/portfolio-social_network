@@ -26,7 +26,8 @@ const store = {
                 {id: 3, text: 'Okay, bye'}
             ],
             newMessageText: ''
-        }
+        },
+        sidebar: {}
     },
 
     _callSubscriber() {
