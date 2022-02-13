@@ -1,15 +1,15 @@
 import React from 'react';
 import s from './MyPosts.module.css';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../redux/store';
+import { addPostCreator, updateNewPostTextCreator } from '../../../../../redux/store';
 
 const MyPosts = ({ state, dispatch }) => {
      const newPostElement = React.createRef();
 
-     const handleClickPost = () => dispatch(addPostActionCreator());
+     const handleClickPost = () => dispatch(addPostCreator());
 
      const handleChangePost = () => {
           const text = newPostElement.current.value;
-          dispatch(updateNewPostTextActionCreator(text));
+          dispatch(updateNewPostTextCreator(text));
      }
 
      return (
