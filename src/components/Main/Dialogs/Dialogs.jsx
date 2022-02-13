@@ -1,4 +1,3 @@
-import React from 'react';
 import s from './Dialogs.module.css';
 import { addMessageCreator, updateNewMessageTextCreator } from '../../../redux/store';
 import DialogItem from './DialogItem/DialogItem';
@@ -8,12 +7,10 @@ const Dialogs = ({ state, dispatch }) => {
     const dialogsElements = state.dialogsPage.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id} />);
     const messagesElements = state.dialogsPage.messages.map(message => <Message text={message.text} />);
 
-    const newMessageElement = React.createRef();
-
     const handleClickMessage = () => dispatch(addMessageCreator());
 
-    const handleChangeMessage = () => {
-        const message = newMessageElement.current.value;
+    const handleChangeMessage = (e) => {
+        const message = e.target.value;
         dispatch(updateNewMessageTextCreator(message));
     };
 
@@ -27,7 +24,7 @@ const Dialogs = ({ state, dispatch }) => {
             <div className={s.messages}>
                 {messagesElements}
                 <div className={s.textarea}>
-                    <textarea onChange={handleChangeMessage} placeholder='enter your message...' ref={newMessageElement} value={state.dialogsPage.newMessageText}></textarea>
+                    <textarea onChange={handleChangeMessage} placeholder='enter your message...' value={state.dialogsPage.newMessageText}></textarea>
                 </div>
                 <button className={s.sendButton} type='submit' onClick={handleClickMessage}>Send</button>
             </div>
