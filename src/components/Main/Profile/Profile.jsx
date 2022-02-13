@@ -3,7 +3,7 @@ import ProfileBg from './../../../assets/profile-bg.jpg';
 import Posts from './Posts/Posts';
 import ProfileBio from './ProfileBio/ProfileBio';
 
-const Profile = ({ state, store }) => {
+const Profile = ({ state, dispatch }) => {
     return (
         <div className={s.profile}>
             <div className={s.background}>
@@ -11,7 +11,7 @@ const Profile = ({ state, store }) => {
             </div>
             <div className={s.content}>
                 <ProfileBio />
-                <Posts state={state} store={store}  />
+                <Posts state={state} dispatch={dispatch}  />
             </div>
         </div>
     );

@@ -1,17 +1,25 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 
-const MyPosts = ({ state, store }) => {
+const addPostActionCreator = () => {
+     return {type: 'ADD_POST'};
+};
+
+const updateNewPostTextActionCreator = (text) => {
+     return {type: "UPDATE_NEW_POST_TEXT", newText: text};
+};
+
+const MyPosts = ({ state, dispatch }) => {
      const newPostElement = React.createRef();
 
-     const handleClickPost = () => store.addPost();
+     const handleClickPost = () => dispatch(addPostActionCreator());
 
      const handleChangePost = () => {
           const text = newPostElement.current.value;
-          store.updateNewPostText(text);
+          dispatch(updateNewPostTextActionCreator(text));
      }
 
-    return (
+     return (
         <div className={s.newPost}>
             <h2>My posts</h2>
             <div>

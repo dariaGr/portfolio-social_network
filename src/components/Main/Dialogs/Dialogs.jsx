@@ -3,17 +3,17 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-const Dialogs = ({ state, store }) => {
-    const dialogsElements = state.DialogsPage.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id} />);
-    const messagesElements = state.DialogsPage.messages.map(message => <Message text={message.text} />);
+const Dialogs = ({ state, dispatch }) => {
+    const dialogsElements = state.dialogsPage.dialogs.map( dialog => <DialogItem name={dialog.name} id={dialog.id} />);
+    const messagesElements = state.dialogsPage.messages.map(message => <Message text={message.text} />);
 
     const newMessageElement = React.createRef();
 
-    const handleClickMessage = () => store.addMessage();
+    const handleClickMessage = () => dispatch({type: "ADD_MESSAGE"});
 
     const handleChangeMessage = () => {
         const message = newMessageElement.current.value;
-        store.updateNewMessageText(message);
+        dispatch({type: "UPDATE_NEW_MESSAGE_TEXT", newMessage: message});
     };
 
     return (
