@@ -59,12 +59,20 @@ const store = {
             this._state.dialogsPage.messages.push(newMessage);
             this._state.dialogsPage.newMessageText = '';
             this._callSubscriber(this._state);
-            
+
         } else if (action.type === "UPDATE_NEW_MESSAGE_TEXT") {
             this._state.dialogsPage.newMessageText = action.newMessage;
             this._callSubscriber(this._state);
         }
     }
+};
+
+export const addPostActionCreator = () => {
+     return {type: 'ADD_POST'};
+};
+
+export const updateNewPostTextActionCreator = (text) => {
+     return {type: "UPDATE_NEW_POST_TEXT", newText: text};
 };
 
 export default store;

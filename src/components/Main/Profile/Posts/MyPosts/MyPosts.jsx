@@ -1,13 +1,6 @@
 import React from 'react';
 import s from './MyPosts.module.css';
-
-const addPostActionCreator = () => {
-     return {type: 'ADD_POST'};
-};
-
-const updateNewPostTextActionCreator = (text) => {
-     return {type: "UPDATE_NEW_POST_TEXT", newText: text};
-};
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../redux/store';
 
 const MyPosts = ({ state, dispatch }) => {
      const newPostElement = React.createRef();
