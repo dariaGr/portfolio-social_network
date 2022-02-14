@@ -1,5 +1,5 @@
 import s from './Dialogs.module.css';
-import { addMessageCreator, updateNewMessageTextCreator } from '../../../redux/store';
+import { addMessageCreator, updateNewMessageTextCreator } from '../../../redux/dialogsReducer';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 

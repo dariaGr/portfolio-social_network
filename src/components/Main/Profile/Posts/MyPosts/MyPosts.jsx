@@ -1,5 +1,5 @@
 import s from './MyPosts.module.css';
-import { addPostCreator, updateNewPostTextCreator } from '../../../../../redux/store';
+import { addPostCreator, updateNewPostTextCreator } from '../../../../../redux/profileReducer';
 
 const MyPosts = ({ state, dispatch }) => {
      const handleClickPost = () => dispatch(addPostCreator());
