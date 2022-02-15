@@ -1,13 +1,13 @@
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 import Post from './Post/Post';
 import s from './Posts.module.css';
 
-const Posts = ({ state, dispatch }) => {
+const Posts = ({ state, store }) => {
     const postElements = state.profilePage.posts.map( post => <Post message={post.message} likesCount={post.likesCount} />);
 
     return (
         <div className={s.posts}>
-             <MyPosts dispatch={dispatch} state={state} />
+             <MyPostsContainer store={store} state={state} />
             <div className={s.oldPosts}>
                 {postElements}
             </div>

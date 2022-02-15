@@ -1,15 +1,13 @@
 import { addPostCreator, updateNewPostTextCreator } from '../../../../../redux/profileReducer';
 import MyPosts from './MyPosts';
 
-const MyPostsContainer = ({ dispatch }) => {
-     const handleClickPost = () => dispatch(addPostCreator());
+const MyPostsContainer = ({ store, state }) => {
+     const handleClickPost = () => store.dispatch(addPostCreator());
 
-     const handleChangePost = (text) => {
-          dispatch(updateNewPostTextCreator(text));
-     };
+     const handleChangePost = (text) => store.dispatch(updateNewPostTextCreator(text));
 
      return (
-        <MyPosts updateNewPostText={handleChangePost} addPost={handleClickPost} />
+        <MyPosts updateNewPostText={handleChangePost} addPost={handleClickPost} state={state} />
     );
 };
 

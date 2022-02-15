@@ -6,12 +6,12 @@ import News from './News/News';
 import Music from './Music/Music';
 import Settings from './Settings/Settings';
 
-const Main = ({ state, dispatch }) => {
+const Main = ({ state, store }) => {
   return (
     <main className={s.main}>
       <Routes>
-        <Route path='/profile' element={<Profile dispatch={dispatch} state={state} />} />
-        <Route path='/dialogs' element={<Dialogs dispatch={dispatch} state={state} />} />
+        <Route path='/profile' element={<Profile store={store} state={state} />} />
+        <Route path='/dialogs' element={<Dialogs store={store} state={state} />} />
         <Route path='/news' element={<News />} />
         <Route path='/music' element={<Music />} />
         <Route path='/settings' element={<Settings />} />
