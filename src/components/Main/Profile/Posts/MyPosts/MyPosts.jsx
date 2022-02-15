@@ -1,6 +1,6 @@
 import s from './MyPosts.module.css';
 
-const MyPosts = ({ state, updateNewPostText }) => {
+const MyPosts = ({ state, updateNewPostText, addPost }) => {
      const handleClickPost = () => addPost();
 
      const handleChangePost = (e) => {
