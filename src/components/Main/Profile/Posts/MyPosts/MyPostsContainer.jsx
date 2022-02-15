@@ -6,7 +6,7 @@ const MyPostsContainer = ({ dispatch }) => {
 
      const handleChangePost = (text) => {
           dispatch(updateNewPostTextCreator(text));
-     }
+     };
 
      return (
         <MyPosts updateNewPostText={handleChangePost} addPost={handleClickPost} />

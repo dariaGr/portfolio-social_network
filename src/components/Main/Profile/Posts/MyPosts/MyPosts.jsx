@@ -6,7 +6,7 @@ const MyPosts = ({ state, updateNewPostText }) => {
      const handleChangePost = (e) => {
           const text = e.target.value;
           updateNewPostText(text);
-     }
+     };
 
      return (
         <div className={s.newPost}>
