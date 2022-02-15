@@ -1,12 +1,11 @@
 import s from './MyPosts.module.css';
-import { addPostCreator, updateNewPostTextCreator } from '../../../../../redux/profileReducer';
 
-const MyPosts = ({ state, dispatch }) => {
-     const handleClickPost = () => dispatch(addPostCreator());
+const MyPosts = ({ state, updateNewPostText }) => {
+     const handleClickPost = () => addPost();
 
      const handleChangePost = (e) => {
           const text = e.target.value;
-          dispatch(updateNewPostTextCreator(text));
+          updateNewPostText(text);
      }
 
      return (
