@@ -1,6 +1,6 @@
 import s from './MyPosts.module.css';
 
-const MyPosts = ({ state, updateNewPostText, addPost }) => {
+const MyPosts = ({ newPostText, updateNewPostText, addPost }) => {
      const handleClickPost = () => addPost();
 
      const handleChangePost = (e) => {
@@ -12,7 +12,7 @@ const MyPosts = ({ state, updateNewPostText, addPost }) => {
         <div className={s.newPost}>
             <h2>My posts</h2>
             <div>
-                 <textarea onChange={handleChangePost} placeholder='your news...' value={state.profilePage.newPostText}/>
+                 <textarea onChange={handleChangePost} placeholder='your news...' value={newPostText}/>
             </div>
             <div>
                  <button className={s.sendButton} type='submit' onClick={handleClickPost}>Add post</button>

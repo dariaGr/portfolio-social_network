@@ -1,13 +1,14 @@
-import MyPostsContainer from './MyPosts/MyPostsContainer';
-import Post from './Post/Post';
 import s from './Posts.module.css';
+import Post from './Post/Post';
+import MyPosts from './MyPosts/MyPosts';
 
-const Posts = ({ state, store }) => {
-    const postElements = state.profilePage.posts.map( post => <Post message={post.message} likesCount={post.likesCount} />);
+const Posts = ({ posts, newPostText, updateNewPostText, addPost }) => {
+    const postElements = posts.map( post => <Post message={post.message} likesCount={post.likesCount} />);
 
     return (
         <div className={s.posts}>
-             <MyPostsContainer store={store} state={state} />
+             <MyPosts updateNewPostText={updateNewPostText} 
+            addPost={addPost} newPostText={newPostText} />
             <div className={s.oldPosts}>
                 {postElements}
             </div>
