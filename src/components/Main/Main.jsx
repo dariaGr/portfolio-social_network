@@ -6,11 +6,11 @@ import Music from './Music/Music';
 import Settings from './Settings/Settings';
 import DialogsContainer from './Dialogs/DialogsContainer';
 
-const Main = ({ store }) => {
+const Main = () => {
   return (
     <main className={s.main}>
       <Routes>
-        <Route path='/profile' element={<Profile store={store} />} />
+        <Route path='/profile' element={<Profile />} />
         <Route path='/dialogs' element={<DialogsContainer store={store} />} />
         <Route path='/news' element={<News />} />
         <Route path='/music' element={<Music />} />

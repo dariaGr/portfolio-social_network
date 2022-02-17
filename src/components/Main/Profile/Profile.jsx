@@ -3,7 +3,7 @@ import ProfileBg from './../../../assets/profile-bg.jpg';
 import PostsContainer from './Posts/PostsContainer';
 import ProfileBio from './ProfileBio/ProfileBio';
 
-const Profile = ({ store }) => {
+const Profile = () => {
     return (
         <div className={s.profile}>
             <div className={s.background}>
@@ -11,7 +11,7 @@ const Profile = ({ store }) => {
             </div>
             <div className={s.content}>
                 <ProfileBio />
-                <PostsContainer store={store} />
+                <PostsContainer />
             </div>
         </div>
     );
