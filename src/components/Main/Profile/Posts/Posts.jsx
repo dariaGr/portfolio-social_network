@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import MyPosts from './MyPosts/MyPosts';
 
 const Posts = ({ posts, newPostText, updateNewPostText, addPost }) => {
-    const postElements = posts.map( post => <Post message={post.message} likesCount={post.likesCount} />);
+    const postElements = posts.map( post => <Post message={post.message} key={post.id} likesCount={post.likesCount} />);
 
     return (
         <div className={s.posts}>
