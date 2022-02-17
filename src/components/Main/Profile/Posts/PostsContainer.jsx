@@ -13,9 +13,9 @@ const PostsContainer = () => {
                 return (
                     <Posts 
                         posts={state.profilePage.posts} 
+                        newPostText={state.profilePage.newPostText} 
                         updateNewPostText={handleChangePost} 
                         addPost={handleClickPost} 
-                        newPostText={state.profilePage.newPostText} 
                     />
                     )
                 }

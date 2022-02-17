@@ -11,7 +11,7 @@ const Main = () => {
     <main className={s.main}>
       <Routes>
         <Route path='/profile' element={<Profile />} />
-        <Route path='/dialogs' element={<DialogsContainer store={store} />} />
+        <Route path='/dialogs' element={<DialogsContainer />} />
         <Route path='/news' element={<News />} />
         <Route path='/music' element={<Music />} />
         <Route path='/settings' element={<Settings />} />
