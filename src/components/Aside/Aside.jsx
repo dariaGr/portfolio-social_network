@@ -22,6 +22,9 @@ const Aside = () => {
                     <li className={s.item}>
                         <NavLink to="/settings" className={(navigationData) => navigationData.isActive ? s.activeLink : null}>Settings</NavLink>
                     </li>
+                    <li className={s.item}>
+                        <NavLink to="/find-users" className={(navigationData) => navigationData.isActive ? s.activeLink : null}>Find Users</NavLink>
+                    </li>
                 </ul>
             </nav>
             <div className={s.friends}>

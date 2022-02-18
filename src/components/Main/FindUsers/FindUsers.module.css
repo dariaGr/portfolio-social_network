@@ -1,0 +1,47 @@
+.findUsers {
+  padding: 30px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.userImg {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.followButton {
+  display: block;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.userCard {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.userContent {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #fff;
+  flex: 1 1 auto;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.userName {
+  margin-bottom: 60px;
+}
+
+.showMoreButton {
+  display: block;
+  margin: 0 auto;
+}
