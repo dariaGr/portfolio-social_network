@@ -16,7 +16,7 @@ const Main = () => {
         <Route path='/news' element={<News />} />
         <Route path='/music' element={<Music />} />
         <Route path='/settings' element={<Settings />} />
-        <Route path='/find-users' element={<FindUsers />} />
+        <Route path='/find-users' element={<FindUsersContainer />} />
       </Routes>
     </main>
   );
