@@ -29,9 +29,9 @@ const Aside = () => {
             </nav>
             <div className={s.friends}>
                 <div>Friends</div>
-                <Avatar />
-                <Avatar />
-                <Avatar />
+                <Avatar customClass={s.imgAside} />
+                <Avatar customClass={s.imgAside} />
+                <Avatar customClass={s.imgAside} />
             </div>
         </aside>
     );

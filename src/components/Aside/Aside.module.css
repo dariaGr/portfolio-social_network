@@ -7,6 +7,13 @@
   color: #0c1713;
 }
 
+.imgAside {
+  border-radius: 50%;
+  cursor: pointer;
+  max-width: 50px;
+  margin: 5px;
+}
+
 .item {
   padding: 8px;
   cursor: pointer;
