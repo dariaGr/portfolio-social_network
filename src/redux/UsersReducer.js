@@ -1,61 +1,22 @@
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
+const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
 const SET_USERS = 'SET_USERS';
 
 const initialState = {
-    users = [
-        // {id: 1, 
-        // followed: false,
-        // fullName: 'Dmitry K.', 
-        // city: 'Berlin',
-        // location: {
-        //     country: 'Germany',
-        //     status: 'I am looking for a job right now...'
-        //     }
-        // },
-        // {id: 2, 
-        // followed: true,
-        // fullName: 'Elena M.', 
-        // city: 'Munich',
-        // location: {
-        //     country: 'Germany',
-        //     status: 'Random status!'
-        //     }
-        // },
-        // {id: 3, 
-        // followed: false,
-        // fullName: 'Michael T.', 
-        // city: 'Dusseldorf',
-        // location: {
-        //     country: 'Germany',
-        //     status: 'Sleeping...'
-        //     }
-        // }
-    ]
+    users: []
 }
 
 const UsersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case FOLLOW:
+        case TOGGLE_FOLLOW:
             return {
                 ...state,
                 users: state.users.map(user => {
                     if (user.id === action.userId) {
-                        return {...user, followed: true}
-                    };
-                    return user;
+                        return {...user, followed: !user.followed}
+                    }
+                        return user;
                 })
-            };
-        case UNFOLLOW:
-            return {
-                ...state,
-                users: state.users.map(user => {
-                    if (user.id === action.userId) {
-                        return {...user, followed: false}
-                    };
-                    return user;
-                })
-            };
+            }
         case SET_USERS:
             return {
                 ...state,
@@ -66,8 +27,7 @@ const UsersReducer = (state = initialState, action) => {
     }
 }
 
-export const followAC = (userId) => ({type: FOLLOW, userId});
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
+export const toggleFollowAC = (userId) => ({type: TOGGLE_FOLLOW, userId});
 export const setUsersAC = (users) => ({type: SET_USERS, users});
 
 export default UsersReducer;

@@ -5,7 +5,7 @@ import News from './News/News';
 import Music from './Music/Music';
 import Settings from './Settings/Settings';
 import DialogsContainer from './Dialogs/DialogsContainer';
-import FindUsers from './FindUsers/FindUsers';
+import FindUsersContainer from './FindUsers/FindUsersContainer';
 
 const Main = () => {
   return (
