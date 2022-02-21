@@ -1,5 +1,6 @@
 import s from './FindUsers.module.css';
 import User from '../../../assets/user.jpg';
+import { NavLink } from 'react-router-dom';
 
 const FindUsers = ({totalUsersCount, pageSize, users, currentPage, toggleFollow, onPageChanged}) => {
 
@@ -26,7 +27,9 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, toggleFollow,
                 {users.map(user => 
                     <div key={user.id} className={s.userCard}>
                     <div className={s.column}>
-                        <img className={s.userImg} src={user.photos.small != null ? user.photos.small : User} alt="user-avatar" />
+                        <NavLink to={`/profile${user.id}`}>
+                            <img className={s.userImg} src={user.photos.small != null ? user.photos.small : User} alt="user-avatar" />
+                        </NavLink>
                         <button onClick={() => {toggleFollow(user.id)}} className={s.followButton}>
                             {user.followed ? 'Unfollow' : 'Follow'}
                         </button>

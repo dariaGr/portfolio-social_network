@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import s from './Main.module.css';
-import Profile from './Profile/Profile';
+import ProfileContainer from './Profile/ProfileContainer';
 import News from './News/News';
 import Music from './Music/Music';
 import Settings from './Settings/Settings';
@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <main className={s.main}>
       <Routes>
-        <Route path='/profile' element={<Profile />} />
+        <Route path='/profile' element={<ProfileContainer />} />
         <Route path='/dialogs' element={<DialogsContainer />} />
         <Route path='/news' element={<News />} />
         <Route path='/music' element={<Music />} />

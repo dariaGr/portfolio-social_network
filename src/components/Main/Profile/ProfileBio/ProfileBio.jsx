@@ -1,10 +1,15 @@
-import Avatar from '../../../Avatar/Avatar';
+import Avatar from '../../../common/Avatar/Avatar';
+import Loader from '../../../common/Loader/Loader';
 import s from './ProfileBio.module.css';
 
-const ProfileBio = () => {
+const ProfileBio = (props) => {
+    if (!props.profile) {
+        return <Loader />
+    }
+    
     return (
         <div className={s.bio}>
-            <Avatar />
+            <img src={props.profile.photos.large} alt="avatar" />
             <div className={s.description}>
                 <h1 className={s.name}>Daria Grebenjuk</h1>
                <ul className={s.list}>

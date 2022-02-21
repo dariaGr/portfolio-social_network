@@ -1,5 +1,5 @@
 import s from './Avatar.module.css';
-import Ava from './../../assets/avatar.jpg';
+import Ava from './../../../assets/avatar.jpg';
 
 const Avatar = ({customClass}) => {
 

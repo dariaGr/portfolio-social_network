@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../common/Avatar/Avatar';
 import s from './Aside.module.css';
 
 const Aside = () => {
