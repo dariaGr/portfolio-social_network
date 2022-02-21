@@ -2,7 +2,10 @@ const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW';
 const SET_USERS = 'SET_USERS';
 
 const initialState = {
-    users: []
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 21,
+    currentPage: 1
 }
 
 const UsersReducer = (state = initialState, action) => {

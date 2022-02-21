@@ -1,20 +1,31 @@
 import React from 'react';
-import s from './FindUsers.module.css';
 import axios from 'axios';
+import s from './FindUsers.module.css';
 import User from '../../../assets/user.jpg';
 
 class FindUsers extends React.Component {
     componentDidMount(){
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
             })
     }
 
     render(){
+        const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        const pages = [];
+        for (let i=1; i<=pagesCount; i++) {
+            pages.push(i);
+        }
+
         return (
         <div className={s.findUsers}>
             <h1 className={s.title}>Users</h1>
+            <div>
+                {pages.map(page => {
+                    return <span className={this.props.currentPage === page && s.selectedPage}>{page}</span>
+                })}
+            </div>
             <div className={s.users}>
                 {this.props.users.map(user => 
                     <div key={user.id} className={s.userCard}>

@@ -45,3 +45,8 @@
   display: block;
   margin: 0 auto;
 }
+
+.selectedPage {
+  font-weight: 700;
+  font-size: 26px;
+}
