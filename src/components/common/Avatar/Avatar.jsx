@@ -1,10 +1,10 @@
 import s from './Avatar.module.css';
-import Ava from './../../../assets/avatar.jpg';
+import User from './../../../assets/user.jpg';
 
 const Avatar = ({customClass}) => {
 
     return (
-        <img className={customClass ? customClass : s.img} src={Ava} alt="user's avatar" />
+        <img className={customClass ? customClass : s.img} src={User} alt="user's avatar" />
     );
 };
 

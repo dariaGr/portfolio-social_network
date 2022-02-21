@@ -1,3 +1,4 @@
+import Avatar from '../../../common/Avatar/Avatar';
 import Loader from '../../../common/Loader/Loader';
 import s from './ProfileBio.module.css';
 
@@ -8,7 +9,7 @@ const ProfileBio = (props) => {
 
     return (
         <div className={s.bio}>
-            <img className={s.img} src={props.profile.photos.large} alt="avatar" />
+            {props.profile.photos.large ? <img className={s.img} src={props.profile.photos.large} alt="avatar" /> : <Avatar /> }
             <div className={s.description}>
                 <h1 className={s.name}>{props.profile.fullName}</h1>
                <ul className={s.list}>
