@@ -1,4 +1,3 @@
-import Avatar from '../../../common/Avatar/Avatar';
 import Loader from '../../../common/Loader/Loader';
 import s from './ProfileBio.module.css';
 
@@ -6,17 +5,17 @@ const ProfileBio = (props) => {
     if (!props.profile) {
         return <Loader />
     }
-    
+
     return (
         <div className={s.bio}>
-            <img src={props.profile.photos.large} alt="avatar" />
+            <img className={s.img} src={props.profile.photos.large} alt="avatar" />
             <div className={s.description}>
-                <h1 className={s.name}>Daria Grebenjuk</h1>
+                <h1 className={s.name}>{props.profile.fullName}</h1>
                <ul className={s.list}>
-                    <li><span>Date of Birth:</span> 30th May</li>
-                    <li><span>City:</span> Munich</li>
-                    <li><span>Education:</span> University of Stuttgart '18</li>
-                    <li><span>Website:</span> <a href='https://dariagr.github.io/portfolio/' target='_blank'>https://dariagr.github.io/portfolio/</a></li>
+                    <li><span>About me: </span>{props.profile.aboutMe}</li>
+                    <li><span>Instagram: </span><a href='https://instagram.com/itkamasutra' target='_blank'>{props.profile.contacts.instagram}</a></li>
+                    <li>{props.profile.lookingForAJob && 'Looking for a job'}</li>
+                    <li>{props.profile.lookingForAJob && props.profile.lookingForAJobDescription}</li>
                 </ul>
             </div>
         </div>
