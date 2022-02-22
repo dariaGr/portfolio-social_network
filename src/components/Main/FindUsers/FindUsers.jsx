@@ -1,8 +1,9 @@
 import s from './FindUsers.module.css';
 import User from '../../../assets/user.jpg';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
-const FindUsers = ({totalUsersCount, pageSize, users, currentPage, toggleFollow, onPageChanged}) => {
+const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfollow, onPageChanged}) => {
 
     const pagesCount = Math.ceil(totalUsersCount / pageSize);
         const pages = [];
@@ -30,9 +31,30 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, toggleFollow,
                         <NavLink to={`/profile/${user.id}`}>
                             <img className={s.userImg} src={user.photos.small != null ? user.photos.small : User} alt="user-avatar" />
                         </NavLink>
-                        <button onClick={() => {toggleFollow(user.id)}} className={s.followButton}>
-                            {user.followed ? 'Unfollow' : 'Follow'}
-                        </button>
+                        {user.followed 
+                        ? <button onClick={()=>{
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, 
+                            {withCredentials: true,
+                            headers: {'API-KEY': '7f367b50-e1e3-4664-b642-e4301e6d3072'}
+                            })
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        unfollow(user.id)
+                                    }
+                                })
+                        }} className={s.followButton}>Unfollow</button>
+                        : <button onClick={()=>{
+                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, 
+                            {withCredentials: true,
+                            headers: {'API-KEY': '7f367b50-e1e3-4664-b642-e4301e6d3072'}
+                            })
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        follow(user.id)
+                                    }
+                                })
+                        }} className={s.followButton}>Follow</button>
+                        }
                     </div>
                     <div className={s.userContent}>
                         <div className={s.description}>
