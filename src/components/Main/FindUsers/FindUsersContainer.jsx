@@ -4,17 +4,11 @@ import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleI
 import FindUsers from './FindUsers';
 import Loader from './../../common/Loader/Loader';
 import { UsersAPI } from './../../../api/api';
+import { getUsersThunkCreator } from './../../../redux/usersReducer';
 
 class FindUsersContainer extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-
-        UsersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount);
-            })
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
     
     onPageChanged = (page) => {
@@ -65,6 +59,7 @@ export default connect(mapStateToProps,
     setCurrentPage,
     setTotalUsersCount,
     toggleIsFetching,
-    toggleFollowingProgress
+    toggleFollowingProgress,
+    getUsers: getUsersThunkCreator
     }
     )(FindUsersContainer);
