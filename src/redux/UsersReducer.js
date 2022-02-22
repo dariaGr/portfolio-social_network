@@ -113,13 +113,13 @@ export const follow = (userId) => {
     return (
         dispatch => {
             dispatch(toggleFollowingProgress(true, userId));
-                UsersAPI.follow(userId)
-                    .then(data => {
-                        if (data.resultCode === 0) {
-                            dispatch(followSuccess(userId));
-                        };
-                       dispatch(toggleFollowingProgress(false, userId));
-                    });
+            UsersAPI.follow(userId)
+                .then(data => {
+                    if (data.resultCode === 0) {
+                        dispatch(followSuccess(userId));
+                    };
+                    dispatch(toggleFollowingProgress(false, userId));
+                });
         }
     );
 };
@@ -128,13 +128,13 @@ export const unfollow = (userId) => {
     return (
         dispatch => {
             dispatch(toggleFollowingProgress(true, userId));
-                UsersAPI.unfollow(userId)
-                    .then(data => {
-                        if (data.resultCode === 0) {
-                            dispatch(unfollowSuccess(userId));
-                        };
-                        dispatch(toggleFollowingProgress(false, userId));
-                    });
+            UsersAPI.unfollow(userId)
+                .then(data => {
+                    if (data.resultCode === 0) {
+                        dispatch(unfollowSuccess(userId));
+                    };
+                    dispatch(toggleFollowingProgress(false, userId));
+                });
         }
     );
 };
