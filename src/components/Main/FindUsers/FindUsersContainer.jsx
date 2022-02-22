@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from './../../../redux/usersReducer';
 import FindUsers from './FindUsers';
-import Loader from '../../common/Loader/Loader';
-import { getUsers } from '../../../api/api';
+import Loader from './../../common/Loader/Loader';
+import { UsersAPI } from './../../../api/api';
 
 class FindUsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
 
-        getUsers(this.props.currentPage, this.props.pageSize)
+        UsersAPI.getUsers(this.props.currentPage, this.props.pageSize)
             .then(data => {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(data.items);
@@ -20,7 +20,7 @@ class FindUsersContainer extends React.Component {
     onPageChanged = (page) => {
         this.props.setCurrentPage(page);
         this.props.toggleIsFetching(true);
-        getUsers(page, this.props.pageSize)
+        UsersAPI.getUsers(page, this.props.pageSize)
             .then(data => {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(data.items)
