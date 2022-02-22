@@ -1,7 +1,7 @@
 import s from './FindUsers.module.css';
-import User from '../../../assets/user.jpg';
+import User from './../../../assets/user.jpg';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
+import { FollowAPI } from './../../../api/api';
 
 const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfollow, onPageChanged}) => {
 
@@ -33,23 +33,17 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfol
                         </NavLink>
                         {user.followed 
                         ? <button onClick={()=>{
-                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, 
-                            {withCredentials: true,
-                            headers: {'API-KEY': '7f367b50-e1e3-4664-b642-e4301e6d3072'}
-                            })
-                                .then(response => {
-                                    if (response.data.resultCode === 0) {
+                            FollowAPI.unfollow(user.id)
+                                .then(data => {
+                                    if (data.resultCode === 0) {
                                         unfollow(user.id)
                                     }
                                 })
                         }} className={s.followButton}>Unfollow</button>
                         : <button onClick={()=>{
-                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, 
-                            {withCredentials: true,
-                            headers: {'API-KEY': '7f367b50-e1e3-4664-b642-e4301e6d3072'}
-                            })
-                                .then(response => {
-                                    if (response.data.resultCode === 0) {
+                            FollowAPI.follow(user.id)
+                                .then(data => {
+                                    if (data.resultCode === 0) {
                                         follow(user.id)
                                     }
                                 })

@@ -1,23 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
 import { useMatch } from 'react-router-dom';
-import axios from 'axios';
 import s from './Profile.module.css';
 import ProfileBg from './../../../assets/profile-bg.jpg';
 import PostsContainer from './Posts/PostsContainer';
 import ProfileBio from './ProfileBio/ProfileBio';
 import { setUserProfile } from './../../../redux/profileReducer';
+import { ProfileAPI } from './../../../api/api';
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.match ? this.props.match.params.userId : '22550';
 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-        .then((response) => {
-        this.props.setUserProfile(response.data);
-        });
-    }
+        ProfileAPI.getProfile(userId)
+            .then(data => {
+            this.props.setUserProfile(data);
+            })
+    };
   
     render() {
         return (
