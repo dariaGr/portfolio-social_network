@@ -3,7 +3,7 @@ import User from './../../../assets/user.jpg';
 import { NavLink } from 'react-router-dom';
 import { FollowAPI } from './../../../api/api';
 
-const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfollow, onPageChanged}) => {
+const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfollow, onPageChanged, followingInProgress, toggleFollowingProgress}) => {
 
     const pagesCount = Math.ceil(totalUsersCount / pageSize);
         const pages = [];
@@ -32,20 +32,24 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfol
                             <img className={s.userImg} src={user.photos.small != null ? user.photos.small : User} alt="user-avatar" />
                         </NavLink>
                         {user.followed 
-                        ? <button onClick={()=>{
+                        ? <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} onClick={()=>{
+                            toggleFollowingProgress(true, user.id);
                             FollowAPI.unfollow(user.id)
                                 .then(data => {
                                     if (data.resultCode === 0) {
                                         unfollow(user.id)
                                     }
+                                    toggleFollowingProgress(false, user.id);
                                 })
                         }} className={s.followButton}>Unfollow</button>
-                        : <button onClick={()=>{
+                        : <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} onClick={()=>{
+                            toggleFollowingProgress(true, user.id);
                             FollowAPI.follow(user.id)
                                 .then(data => {
                                     if (data.resultCode === 0) {
                                         follow(user.id)
                                     }
+                                    toggleFollowingProgress(false, user.id);
                                 })
                         }} className={s.followButton}>Follow</button>
                         }
