@@ -32,9 +32,9 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, onPageChanged
                         </NavLink>
                         {user.followed 
                         ? <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} 
-                        onClick={()=>{unfollow(user.id)}} className={s.followButton}>Unfollow</button>
+                        onClick={()=>{unfollow(user.id)}}>Unfollow</button>
                         : <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} 
-                        onClick={()=>{follow(user.id)}} className={s.followButton}>Follow</button>
+                        onClick={()=>{follow(user.id)}}>Follow</button>
                         }
                     </div>
                     <div className={s.userContent}>
