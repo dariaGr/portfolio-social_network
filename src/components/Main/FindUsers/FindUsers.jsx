@@ -1,7 +1,7 @@
 import s from './FindUsers.module.css';
 import User from './../../../assets/user.jpg';
 import { NavLink } from 'react-router-dom';
-import { FollowAPI } from './../../../api/api';
+import { UsersAPI } from './../../../api/api';
 
 const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfollow, onPageChanged, followingInProgress, toggleFollowingProgress}) => {
 
@@ -34,7 +34,7 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfol
                         {user.followed 
                         ? <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} onClick={()=>{
                             toggleFollowingProgress(true, user.id);
-                            FollowAPI.unfollow(user.id)
+                            UsersAPI.unfollow(user.id)
                                 .then(data => {
                                     if (data.resultCode === 0) {
                                         unfollow(user.id)
@@ -44,7 +44,7 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfol
                         }} className={s.followButton}>Unfollow</button>
                         : <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} onClick={()=>{
                             toggleFollowingProgress(true, user.id);
-                            FollowAPI.follow(user.id)
+                            UsersAPI.follow(user.id)
                                 .then(data => {
                                     if (data.resultCode === 0) {
                                         follow(user.id)
