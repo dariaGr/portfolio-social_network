@@ -8,7 +8,7 @@ import { getUsers, getUsersOnPageChanged } from './../../../redux/usersReducer';
 class FindUsersContainer extends React.Component {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
-    }
+    };
     
     onPageChanged = (page) => {
         this.props.getUsersOnPageChanged(page, this.props.pageSize);
@@ -29,9 +29,9 @@ class FindUsersContainer extends React.Component {
                 users={this.props.users}
                 followingInProgress={this.props.followingInProgress} />
             </>
-        )
-    }
-}
+        );
+    };
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -41,8 +41,8 @@ const mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps, 
     {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers, getUsersOnPageChanged})(FindUsersContainer);
