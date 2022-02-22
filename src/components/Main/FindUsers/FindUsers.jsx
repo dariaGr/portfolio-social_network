@@ -1,17 +1,16 @@
+import { NavLink } from 'react-router-dom';
 import s from './FindUsers.module.css';
 import User from './../../../assets/user.jpg';
-import { NavLink } from 'react-router-dom';
-import { UsersAPI } from './../../../api/api';
 
-const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfollow, onPageChanged, followingInProgress, toggleFollowingProgress}) => {
+const FindUsers = ({totalUsersCount, pageSize, users, currentPage, onPageChanged, followingInProgress, follow, unfollow}) => {
 
     const pagesCount = Math.ceil(totalUsersCount / pageSize);
         const pages = [];
         for (let i=1; i<=pagesCount; i++) {
             if (pages.length < 10) {
                 pages.push(i);
-            }
-        }
+            };
+        };
 
     return (
         <div className={s.findUsers}>
@@ -32,26 +31,10 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfol
                             <img className={s.userImg} src={user.photos.small != null ? user.photos.small : User} alt="user-avatar" />
                         </NavLink>
                         {user.followed 
-                        ? <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} onClick={()=>{
-                            toggleFollowingProgress(true, user.id);
-                            UsersAPI.unfollow(user.id)
-                                .then(data => {
-                                    if (data.resultCode === 0) {
-                                        unfollow(user.id)
-                                    }
-                                    toggleFollowingProgress(false, user.id);
-                                })
-                        }} className={s.followButton}>Unfollow</button>
-                        : <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} onClick={()=>{
-                            toggleFollowingProgress(true, user.id);
-                            UsersAPI.follow(user.id)
-                                .then(data => {
-                                    if (data.resultCode === 0) {
-                                        follow(user.id)
-                                    }
-                                    toggleFollowingProgress(false, user.id);
-                                })
-                        }} className={s.followButton}>Follow</button>
+                        ? <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} 
+                        onClick={()=>{unfollow(user.id)}} className={s.followButton}>Unfollow</button>
+                        : <button disabled={followingInProgress.some(id => id === user.id)} className={s.followButton} 
+                        onClick={()=>{follow(user.id)}} className={s.followButton}>Follow</button>
                         }
                     </div>
                     <div className={s.userContent}>
@@ -68,7 +51,7 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, follow, unfol
             </div>
             <button className={s.showMoreButton}>Show more</button>
         </div>
-    )
-}
+    );
+};
 
 export default FindUsers;

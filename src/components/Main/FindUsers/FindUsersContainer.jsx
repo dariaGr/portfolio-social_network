@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, unfollow, setCurrentPage, toggleFollowingProgress } from './../../../redux/usersReducer';
+import { followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, 
+        getUsers, getUsersOnPageChanged, follow, unfollow } from './../../../redux/usersReducer';
 import FindUsers from './FindUsers';
 import Loader from './../../common/Loader/Loader';
-import { getUsers, getUsersOnPageChanged } from './../../../redux/usersReducer';
 
 class FindUsersContainer extends React.Component {
     componentDidMount() {
@@ -23,11 +23,13 @@ class FindUsersContainer extends React.Component {
                 pageSize={this.props.pageSize}
                 currentPage={this.props.currentPage}
                 onPageChanged={this.onPageChanged}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
+                followSuccess={this.props.followSuccess}
+                unfollowSuccess={this.props.unfollowSuccess}
                 toggleFollowingProgress={this.props.toggleFollowingProgress}
                 users={this.props.users}
-                followingInProgress={this.props.followingInProgress} />
+                followingInProgress={this.props.followingInProgress}
+                follow={this.props.follow}
+                unfollow={this.props.unfollow} />
             </>
         );
     };
@@ -45,4 +47,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, 
-    {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers, getUsersOnPageChanged})(FindUsersContainer);
+    {followSuccess, unfollowSuccess, setCurrentPage, 
+    toggleFollowingProgress, getUsers, getUsersOnPageChanged,
+    follow, unfollow})(FindUsersContainer);
