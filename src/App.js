@@ -1,14 +1,14 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Aside from './components/Aside/Aside';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Main from './components/Main/Main';
 
 const App = () => {
   return (
     <Router>
       <div className='app-wrapper'>
-          <Header />
+          <HeaderContainer />
           <Aside />
           <Main />
       </div>

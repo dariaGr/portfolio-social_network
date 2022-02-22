@@ -9,3 +9,13 @@
   padding: 8px;
   border-radius: 50%;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginBlock {
+  padding: 15px;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { toggleFollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from './../../../redux/UsersReducer';
+import { toggleFollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from './../../../redux/usersReducer';
 import FindUsers from './FindUsers';
 import Loader from '../../common/Loader/Loader';
 
