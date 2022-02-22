@@ -12,7 +12,7 @@ const initialState = {
     isFetching: false
 }
 
-const UsersReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_FOLLOW:
             return {
@@ -55,4 +55,4 @@ export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, current
 export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_USERS_COUNT, totalCount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 
-export default UsersReducer;
+export default usersReducer;
