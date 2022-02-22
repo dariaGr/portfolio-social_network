@@ -79,7 +79,7 @@ export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_USERS_COUNT,
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId});
 
-export const getUsersThunkCreator = (currentPage, pageSize) => {
+export const getUsers = (currentPage, pageSize) => {
     return (
         dispatch => {
             dispatch(toggleIsFetching(true));
@@ -89,6 +89,21 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
                     dispatch(toggleIsFetching(false));
                     dispatch(setUsers(data.items));
                     dispatch(setTotalUsersCount(data.totalCount));
+                })
+        }
+    )
+};
+
+export const getUsersOnPageChanged = (currentPage, pageSize) => {
+    return (
+        dispatch => {
+            dispatch(setCurrentPage(currentPage));
+            dispatch(toggleIsFetching(true));
+        
+            UsersAPI.getUsers(currentPage, pageSize)
+                .then(data => {
+                    dispatch(toggleIsFetching(false));
+                    dispatch(setUsers(data.items));
                 })
         }
     )
