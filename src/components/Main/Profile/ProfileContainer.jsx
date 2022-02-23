@@ -5,17 +5,13 @@ import s from './Profile.module.css';
 import ProfileBg from './../../../assets/profile-bg.jpg';
 import PostsContainer from './Posts/PostsContainer';
 import ProfileBio from './ProfileBio/ProfileBio';
-import { setUserProfile } from './../../../redux/profileReducer';
-import { UsersAPI } from './../../../api/api';
+import { getUserProfile } from './../../../redux/profileReducer';
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.match ? this.props.match.params.userId : '22550';
-
-        UsersAPI.getProfile(userId).then(data => {
-            this.props.setUserProfile(data.data);
-        })
+        this.props.getUserProfile(userId);
     };
   
     render() {
@@ -44,5 +40,5 @@ const ProfileURLMatch = (props) => {
     return <ProfileContainer {...props} match={match} />;
 }
 
-export default connect(mapStateToProps, {setUserProfile})(ProfileURLMatch);
+export default connect(mapStateToProps, {getUserProfile})(ProfileURLMatch);
 
