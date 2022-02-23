@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, 
-        getUsers, getUsersOnPageChanged, follow, unfollow } from './../../../redux/usersReducer';
+        getUsers, getUsersOnPageChanged, follow, unfollow } from '../../../redux/usersReducer';
 import FindUsers from './FindUsers';
 import Loader from './../../common/Loader/Loader';
 
