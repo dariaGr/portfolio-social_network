@@ -2,7 +2,7 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-const Dialogs = ({ addMessage, updateNewMessageText, dialogs, messages, newMessageText }) => {
+const Dialogs = ({ addMessage, updateNewMessageText, dialogs, messages, newMessageText, isAuth }) => {
     const dialogsElements = dialogs.map( dialog => <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} />);
     const messagesElements = messages.map(message => <Message text={message.text} key={message.id} />);
 
