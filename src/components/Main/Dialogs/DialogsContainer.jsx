@@ -1,4 +1,4 @@
-import { addMessage, updateNewMessageText } from '../../../redux/dialogsReducer';
+import { addMessage } from '../../../redux/dialogsReducer';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Dialogs from './Dialogs';
@@ -12,4 +12,12 @@ const mapStateToProps = state => {
     };
 };
 
-export default compose(connect(mapStateToProps, {addMessage, updateNewMessageText}), withAuthRedirect)(Dialogs);
+const mapDispatchToProps = dispatch => {
+    return {
+        addMessage: NewMessageBody => {
+            dispatch(addMessage(NewMessageBody))
+        },
+    }
+}
+
+export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(Dialogs);
