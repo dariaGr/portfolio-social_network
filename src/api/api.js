@@ -10,7 +10,13 @@ export const UsersAPI = {
     getUsers(currentPage = 1, pageSize = 10) {return instance.get(`users?page=${currentPage}&count=${pageSize}`)},
     follow(userId) {return instance.post(`follow/${userId}`)},
     unfollow(userId) {return instance.delete(`follow/${userId}`)},
-    getProfile(userId) {return instance.get(`profile/${userId}`)}
+    getProfile(userId) {console.warn('Obsolete method. Please use ProfileAPI'); return ProfileAPI.getProfile(userId)}
+};
+
+export const ProfileAPI = {
+    getProfile(userId) {return instance.get(`profile/${userId}`)},
+    getStatus(userId) {return instance.get(`profile/status/${userId}`)},
+    updateStatus(status) {return instance.put(`profile/status`, {status})}
 };
 
 export const AuthAPI = {

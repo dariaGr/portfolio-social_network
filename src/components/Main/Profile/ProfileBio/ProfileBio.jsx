@@ -1,6 +1,7 @@
 import Avatar from '../../../common/Avatar/Avatar';
 import Loader from '../../../common/Loader/Loader';
 import s from './ProfileBio.module.css';
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const ProfileBio = (props) => {
     if (!props.profile) {
@@ -12,6 +13,7 @@ const ProfileBio = (props) => {
             {props.profile.photos.large ? <img className={s.img} src={props.profile.photos.large} alt="avatar" /> : <Avatar /> }
             <div className={s.description}>
                 <h1 className={s.name}>{props.profile.fullName}</h1>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
                <ul className={s.list}>
                     <li><span>About me: </span>{props.profile.aboutMe}</li>
                     <li><span>Instagram: </span><a href='https://instagram.com/itkamasutra' target='_blank'>{props.profile.contacts.instagram}</a></li>

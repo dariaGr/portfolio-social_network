@@ -2,11 +2,9 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
 import { useMatch } from 'react-router-dom';
 import s from './Profile.module.css';
-import ProfileBg from './../../../assets/profile-bg.jpg';
 import PostsContainer from './Posts/PostsContainer';
 import ProfileBio from './ProfileBio/ProfileBio';
-import { getUserProfile } from './../../../redux/profileReducer';
-import { withAuthRedirect } from './../../../hoc/withAuthRedirect';
+import { getUserProfile, getUserStatus, updateUserStatus } from './../../../redux/profileReducer';
 import { compose } from 'redux';
 
 const ProfileContainer = (props) => {
@@ -15,15 +13,13 @@ const ProfileContainer = (props) => {
 
     useEffect(() => {
         props.getUserProfile(userId);
-    }, [])
+        props.getUserStatus(userId);
+    }, []);
 
     return (
         <div className={s.profile}>
-            <div className={s.background}>
-                <img src={ProfileBg} />
-            </div>
             <div className={s.content}>
-                <ProfileBio {...props} profile={props.profile} />
+                <ProfileBio {...props} profile={props.profile} status={props.status} updateStatus={props.updateUserStatus} />
                 <PostsContainer />
             </div>
         </div>
@@ -33,7 +29,8 @@ const ProfileContainer = (props) => {
 const mapStateToProps = state => {
     return {
         profile: state.profilePage.profile,
+        status: state.profilePage.status
     };
 };
 
-export default compose(connect(mapStateToProps, {getUserProfile}), withAuthRedirect)(ProfileContainer);
+export default compose(connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus}))(ProfileContainer);
