@@ -16,8 +16,8 @@ const mapDispatchToProps = dispatch => {
     return {
         addMessage: NewMessageBody => {
             dispatch(addMessage(NewMessageBody))
-        },
-    }
-}
+        }
+    };
+};
 
 export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(Dialogs);
