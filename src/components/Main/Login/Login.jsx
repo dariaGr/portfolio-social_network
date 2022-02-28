@@ -1,4 +1,5 @@
 import s from './Login.module.css';
+import c from './../../common/FormsControls/FormsControls.module.css';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { Input } from '../../common/FormsControls/FormsControls';
@@ -18,6 +19,7 @@ const FormLogin = (props) => {
             <div>
                 <Field component={Input} name='rememberMe' type="checkbox" />Remember me
             </div>
+            {props.error && <div className={c.formSummaryError}>{props.error}</div>}
             <div>
                 <button>Log in</button>
             </div>
