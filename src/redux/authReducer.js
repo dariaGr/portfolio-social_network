@@ -34,4 +34,14 @@ export const getAuthUserData = () => dispatch => {
         });
 };
 
+// export const postLoginUserData = () => dispatch => {
+//     AuthAPI.login()
+//         .then(data => {
+//             if (data.resultCode === 0) {
+//                 let {} = data.data;
+//                 dispatch(loginUser());
+//             };
+//         });
+// }
+
 export default authReducer;
