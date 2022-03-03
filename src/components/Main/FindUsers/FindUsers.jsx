@@ -9,7 +9,7 @@ const FindUsers = ({totalUsersCount, pageSize, users, currentPage, onPageChanged
             <h1 className={s.title}>Users</h1>
             <Paginator currentPage={currentPage} 
                        onPageChanged={onPageChanged} 
-                       totalUsersCount={totalUsersCount} 
+                       totalItemsCount={totalUsersCount} 
                        pageSize={pageSize} />
             <div className={s.users}>
                 {users.map(user => <User user={user} 

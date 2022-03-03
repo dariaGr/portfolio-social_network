@@ -1,4 +1,4 @@
-.selectedPage {
+/* .selectedPage {
   font-weight: 700;
   font-size: 26px;
   cursor: pointer;
@@ -12,4 +12,18 @@
 
 .pagesList {
   margin-bottom: 30px;
+} */
+
+.paginator {
+  margin: 10px;
+}
+
+.pageNumber {
+  padding: 2px;
+  border: 1px solid #808080;
+}
+
+.pageNumber.selectedPage {
+  font-weight: 600;
+  border-color: #000;
 }
