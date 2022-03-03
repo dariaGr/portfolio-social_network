@@ -1,25 +1,20 @@
 import s from './Login.module.css';
 import c from './../../common/FormsControls/FormsControls.module.css';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Input } from '../../common/FormsControls/FormsControls';
 import { required } from '../../../utils/validators';
 import { loginUserData } from '../../../redux/authReducer';
 import { Navigate } from 'react-router-dom';
+import { createField } from '../../common/FormsControls/FormsControls';
 
-const FormLogin = (props) => {
+const FormLogin = ({handleSubmit, error}) => {
     return (
-        <form className={s.formLogin} onSubmit={props.handleSubmit}>
-            <div>
-                <Field validate={[required]} component={Input} name="email" type="email" placeholder="Email" />
-            </div>
-            <div>
-                <Field validate={[required]} component={Input} name='password' type="password" placeholder="Password" />
-            </div>
-            <div>
-                <Field component={Input} name='rememberMe' type="checkbox" />Remember me
-            </div>
-            {props.error && <div className={c.formSummaryError}>{props.error}</div>}
+        <form onSubmit={handleSubmit}>
+            {createField("Email", "email", [required], Input, "email")}
+            {createField("Password", "password", [required], Input, "password")}
+            {createField(null, "rememberMe", null, Input, "checkbox", "remember me")}
+            {error && <div className={c.formSummaryError}>{error}</div>}
             <div>
                 <button>Log in</button>
             </div>
@@ -27,12 +22,12 @@ const FormLogin = (props) => {
     );
 };
 
-const Login = (props) => {
+const Login = ({loginUserData, isAuth}) => {
     const handleSubmit = (formData) => {
-        props.loginUserData(formData.email, formData.password, formData.rememberMe)
+        loginUserData(formData.email, formData.password, formData.rememberMe)
     };
 
-    if (props.isAuth) return <Navigate to={'/profile'} />;
+    if (isAuth) return <Navigate to={'/profile'} />;
 
     return (
         <div className={s.formLoginContainer}>

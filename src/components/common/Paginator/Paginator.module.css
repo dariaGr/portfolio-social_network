@@ -1,0 +1,15 @@
+.selectedPage {
+  font-weight: 700;
+  font-size: 26px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.page {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.pagesList {
+  margin-bottom: 30px;
+}

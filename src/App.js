@@ -1,12 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Aside from './components/Aside/Aside';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Main from './components/Main/Main';
 import { initializedApp } from './redux/appReducer';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import Loader from './components/common/Loader/Loader';
+import store from './redux/redux-store';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends React.Component {
   componentDidMount() {
@@ -19,19 +20,29 @@ class App extends React.Component {
     };
 
     return (
-      <Router>
         <div className='app-wrapper'>
             <HeaderContainer />
             <Aside />
             <Main />
         </div>
-      </Router>
     );
   };
 };
 
 const mapStateToProps = state => ({
   initialized: state.app.initialized
-})
+});
 
-export default connect(mapStateToProps, {initializedApp})(App);
+const AppContainer = connect(mapStateToProps, {initializedApp})(App);
+
+const MainApp = () => {
+  return (
+    <Router>
+      <Provider store={store}>
+        <AppContainer /> 
+      </Provider>
+    </Router>
+  );
+};
+
+export default MainApp;

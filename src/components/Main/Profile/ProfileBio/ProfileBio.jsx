@@ -3,22 +3,22 @@ import Loader from '../../../common/Loader/Loader';
 import s from './ProfileBio.module.css';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 
-const ProfileBio = (props) => {
-    if (!props.profile) {
+const ProfileBio = ({profile, status, updateStatus}) => {
+    if (!profile) {
         return <Loader />
     }
 
     return (
         <div className={s.bio}>
-            {props.profile.photos.large ? <img className={s.img} src={props.profile.photos.large} alt="avatar" /> : <Avatar /> }
+            {profile.photos.large ? <img className={s.img} src={profile.photos.large} alt="avatar" /> : <Avatar /> }
             <div className={s.description}>
-                <h1 className={s.name}>{props.profile.fullName}</h1>
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+                <h1 className={s.name}>{profile.fullName}</h1>
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
                <ul className={s.list}>
-                    <li><span>About me: </span>{props.profile.aboutMe}</li>
-                    <li><span>Instagram: </span><a href='https://instagram.com/itkamasutra' target='_blank'>{props.profile.contacts.instagram}</a></li>
-                    <li>{props.profile.lookingForAJob && 'Looking for a job'}</li>
-                    <li>{props.profile.lookingForAJob && props.profile.lookingForAJobDescription}</li>
+                    <li><span>About me: </span>{profile.aboutMe}</li>
+                    <li><span>Instagram: </span><a href='https://instagram.com/itkamasutra' target='_blank'>{profile.contacts.instagram}</a></li>
+                    <li>{profile.lookingForAJob && 'Looking for a job'}</li>
+                    <li>{profile.lookingForAJob && profile.lookingForAJobDescription}</li>
                 </ul>
             </div>
         </div>

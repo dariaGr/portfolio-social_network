@@ -1,37 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress, 
+import { followSuccess, unfollowSuccess, setCurrentPage, toggleFollowingProgress,
         requestUsers, getUsersOnPageChanged, follow, unfollow } from '../../../redux/usersReducer';
 import FindUsers from './FindUsers';
 import Loader from './../../common/Loader/Loader';
-import { getUsers, getPageSize, getTotalUsersCount, getCurrentPage, 
+import { getUsers, getPageSize, getTotalUsersCount, getCurrentPage,
         getIsFetching, getFollowingInProgress } from './../../../redux/usersSelectors';
 
 class FindUsersContainer extends React.Component {
     componentDidMount() {
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+        const {currentPage, pageSize, requestUsers} = this.props;
+        requestUsers(currentPage, pageSize);
     };
     
     onPageChanged = (page) => {
-        this.props.getUsersOnPageChanged(page, this.props.pageSize);
+        const {pageSize, getUsersOnPageChanged} = this.props;
+        getUsersOnPageChanged(page, pageSize);
     };
 
     render() {
+        const {isFetching, totalUsersCount, pageSize, currentPage, followSuccess, unfollowSuccess, 
+               toggleFollowingProgress, users, followingInProgress, follow, unfollow} = this.props;
+
         return (
             <>
-            {this.props.isFetching ? <Loader /> : null}
+            {isFetching ? <Loader /> : null}
             <FindUsers 
-                totalUsersCount={this.props.totalUsersCount} 
-                pageSize={this.props.pageSize}
-                currentPage={this.props.currentPage}
+                totalUsersCount={totalUsersCount} 
+                pageSize={pageSize}
+                currentPage={currentPage}
                 onPageChanged={this.onPageChanged}
-                followSuccess={this.props.followSuccess}
-                unfollowSuccess={this.props.unfollowSuccess}
-                toggleFollowingProgress={this.props.toggleFollowingProgress}
-                users={this.props.users}
-                followingInProgress={this.props.followingInProgress}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow} />
+                followSuccess={followSuccess}
+                unfollowSuccess={unfollowSuccess}
+                toggleFollowingProgress={toggleFollowingProgress}
+                users={users}
+                followingInProgress={followingInProgress}
+                follow={follow}
+                unfollow={unfollow} />
             </>
         );
     };
