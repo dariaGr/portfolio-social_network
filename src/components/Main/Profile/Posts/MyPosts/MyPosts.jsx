@@ -19,7 +19,6 @@ const MyPostsForm = props => {
 };
 
 const MyPosts = ({ addPost }) => {
-     console.log('my posts')
      const addNewPost = (values) => {
           addPost(values.newPostText);
      };
