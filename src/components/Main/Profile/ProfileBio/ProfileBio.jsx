@@ -1,5 +1,5 @@
-import Avatar from '../../../common/Avatar/Avatar';
-import Loader from '../../../common/Loader/Loader';
+import Avatar from './../../../common/Avatar/Avatar';
+import Loader from './../../../common/Loader/Loader';
 import s from './ProfileBio.module.css';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 
@@ -10,7 +10,7 @@ const ProfileBio = ({profile, status, updateStatus}) => {
 
     return (
         <div className={s.bio}>
-            {profile.photos.large ? <img className={s.img} src={profile.photos.large} alt="avatar" /> : <Avatar /> }
+            {profile.photos.large ? <img className={s.img} src={profile.photos.large} alt='avatar' /> : <Avatar /> }
             <div className={s.description}>
                 <h1 className={s.name}>{profile.fullName}</h1>
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />

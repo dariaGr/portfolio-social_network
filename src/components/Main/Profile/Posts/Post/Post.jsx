@@ -1,4 +1,4 @@
-import Avatar from '../../../../common/Avatar/Avatar';
+import Avatar from './../../../../common/Avatar/Avatar';
 import s from './Post.module.css';
 
 const Post = ({ message, likesCount }) => {

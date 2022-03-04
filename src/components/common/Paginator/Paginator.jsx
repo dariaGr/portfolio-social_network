@@ -16,17 +16,6 @@ const Paginator = ({currentPage, onPageChanged, totalItemsCount, pageSize, porti
     const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
     const rightPortionPageNumber = portionNumber * portionSize;
 
-    // return (
-    //     <div className={s.pagesList}>
-    //         {pages.map(page => {
-    //             return (
-    //             <span className={currentPage === page ? s.selectedPage : s.page}
-    //             onClick={() => onPageChanged(page)} key={page}>{page}</span>
-    //             )
-    //         })}
-    //     </div>
-    // );
-
     return (
         <div className={s.paginator}>
             {portionNumber > 1 && <button onClick={()=>{setPortionNumber(portionNumber - 1)}}>PREV</button>}

@@ -6,7 +6,7 @@ import PostsContainer from './Posts/PostsContainer';
 import ProfileBio from './ProfileBio/ProfileBio';
 import { getUserProfile, getUserStatus, updateUserStatus } from './../../../redux/profileReducer';
 import { compose } from 'redux';
-import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import { withAuthRedirect } from './../../../hoc/withAuthRedirect';
 
 const ProfileContainer = (props) => {
     const match = useMatch('/profile/:userId/');

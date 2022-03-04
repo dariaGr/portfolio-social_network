@@ -7,7 +7,7 @@ const DialogItem = ({ name, id }) => {
     return (
         <li className={s.item}>
             <NavLink to={path}>
-                <img src={ProfilePic} alt="avatar" />
+                <img src={ProfilePic} alt='avatar' />
                 {name}
             </NavLink>
         </li>

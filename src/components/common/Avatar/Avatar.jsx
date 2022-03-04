@@ -4,7 +4,7 @@ import User from './../../../assets/user.jpg';
 const Avatar = ({customClass}) => {
 
     return (
-        <img className={customClass ? customClass : s.img} src={User} alt="user's avatar" />
+        <img className={customClass ? customClass : s.img} src={User} alt={`user's avatar`} />
     );
 };
 

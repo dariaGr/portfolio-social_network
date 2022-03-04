@@ -32,7 +32,7 @@ export const Input = (props) => {
     );
 };
 
-export const createField = (placeholder, name, validators, component, type, text="") => (
+export const createField = (placeholder, name, validators, component, type, text='') => (
     <>
         <Field validate={validators} component={component} name={name} type={type} placeholder={placeholder} />{text}
     </>
