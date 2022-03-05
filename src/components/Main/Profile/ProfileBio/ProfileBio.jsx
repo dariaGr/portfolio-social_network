@@ -3,10 +3,17 @@ import Loader from './../../../common/Loader/Loader';
 import s from './ProfileBio.module.css';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 
-const ProfileBio = ({profile, status, updateStatus}) => {
+const ProfileBio = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+
+    const onMainPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            savePhoto(e.target.files[0]);
+        };
+    };
+
     if (!profile) {
         return <Loader />
-    }
+    };
 
     return (
         <div className={s.bio}>
@@ -15,6 +22,7 @@ const ProfileBio = ({profile, status, updateStatus}) => {
                 <h1 className={s.name}>{profile.fullName}</h1>
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
                <ul className={s.list}>
+                   {isOwner && <input type="file" onChange={onMainPhotoSelected} />}
                     <li><span>About me: </span>{profile.aboutMe}</li>
                     <li><span>Instagram: </span><a href='https://instagram.com/itkamasutra' target='_blank'>{profile.contacts.instagram}</a></li>
                     <li>{profile.lookingForAJob && 'Looking for a job'}</li>

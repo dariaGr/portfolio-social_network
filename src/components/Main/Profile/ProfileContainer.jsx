@@ -1,24 +1,19 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'; 
-import { useMatch, useNavigate } from 'react-router-dom';
+import { useMatch } from 'react-router-dom';
 import s from './Profile.module.css';
 import PostsContainer from './Posts/PostsContainer';
 import ProfileBio from './ProfileBio/ProfileBio';
-import { getUserProfile, getUserStatus, updateUserStatus } from './../../../redux/profileReducer';
+import { getUserProfile, getUserStatus, updateUserStatus, savePhoto } from './../../../redux/profileReducer';
 import { compose } from 'redux';
 import { withAuthRedirect } from './../../../hoc/withAuthRedirect';
 
 const ProfileContainer = (props) => {
+    const isOwner = useMatch('/profile/');
     const match = useMatch('/profile/:userId/');
-    // const history = useNavigate();
     let userId = match ? match.params.userId : props.authorizedUserId;
-
     
-    useEffect(() => {
-        // if (!userId) {
-        //     history('/login');
-        // }
-        
+    useEffect(() => {    
         props.getUserProfile(userId);
         props.getUserStatus(userId);
     }, []);
@@ -26,7 +21,8 @@ const ProfileContainer = (props) => {
     return (
         <div className={s.profile}>
             <div className={s.content}>
-                <ProfileBio {...props} profile={props.profile} status={props.status} updateStatus={props.updateUserStatus} />
+                <ProfileBio isOwner={!!isOwner} profile={props.profile} status={props.status} 
+                updateStatus={props.updateUserStatus} savePhoto={props.savePhoto} />
                 <PostsContainer />
             </div>
         </div>
@@ -42,4 +38,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default compose(connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus}), withAuthRedirect)(ProfileContainer);
+export default compose(connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto}), withAuthRedirect)(ProfileContainer);

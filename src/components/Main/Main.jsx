@@ -7,6 +7,7 @@ import Settings from './Settings/Settings';
 import FindUsersContainer from './FindUsers/FindUsersContainer';
 import Login from './Login/Login';
 import React from 'react';
+
 const DialogsContainer = React.lazy(() => import('./Dialogs/DialogsContainer'));
 
 const Main = () => {
@@ -14,8 +15,8 @@ const Main = () => {
     <main className={s.main}>
       <React.Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path='/profile' element={<ProfileContainer />} />
           <Route path='/profile/:userId' element={<ProfileContainer />} />
+          <Route path='/profile' element={<ProfileContainer />} />
           <Route path='/dialogs' element={<DialogsContainer />} />
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />
