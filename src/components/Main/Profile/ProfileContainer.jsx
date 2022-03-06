@@ -4,7 +4,7 @@ import { useMatch } from 'react-router-dom';
 import s from './Profile.module.css';
 import PostsContainer from './Posts/PostsContainer';
 import ProfileBio from './ProfileBio/ProfileBio';
-import { getUserProfile, getUserStatus, updateUserStatus, savePhoto } from './../../../redux/profileReducer';
+import { getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfile } from './../../../redux/profileReducer';
 import { compose } from 'redux';
 import { withAuthRedirect } from './../../../hoc/withAuthRedirect';
 
@@ -22,7 +22,7 @@ const ProfileContainer = (props) => {
         <div className={s.profile}>
             <div className={s.content}>
                 <ProfileBio isOwner={!!isOwner} profile={props.profile} status={props.status} 
-                updateStatus={props.updateUserStatus} savePhoto={props.savePhoto} />
+                updateStatus={props.updateUserStatus} savePhoto={props.savePhoto} saveProfile={props.saveProfile} />
                 <PostsContainer />
             </div>
         </div>
@@ -38,4 +38,5 @@ const mapStateToProps = state => {
     };
 };
 
-export default compose(connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto}), withAuthRedirect)(ProfileContainer);
+export default compose(connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfile}), 
+withAuthRedirect)(ProfileContainer);

@@ -8,12 +8,16 @@ import { loginUserData } from './../../../redux/authReducer';
 import { Navigate } from 'react-router-dom';
 import { createField } from './../../common/FormsControls/FormsControls';
 
-const FormLogin = ({handleSubmit, error}) => {
+const FormLogin = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             {createField('Email', 'email', [required], Input, 'email')}
             {createField('Password', 'password', [required], Input, 'password')}
             {createField(null, 'rememberMe', null, Input, 'checkbox', 'remember me')}
+
+            {captchaUrl && <img src={captchaUrl} />}
+            {captchaUrl && createField('Symbols from image', 'captcha', [required], Input, 'text')}
+            
             {error && <div className={c.formSummaryError}>{error}</div>}
             <div>
                 <button>Log in</button>
@@ -22,9 +26,9 @@ const FormLogin = ({handleSubmit, error}) => {
     );
 };
 
-const Login = ({loginUserData, isAuth}) => {
+const Login = ({loginUserData, isAuth, captchaUrl}) => {
     const handleSubmit = (formData) => {
-        loginUserData(formData.email, formData.password, formData.rememberMe)
+        loginUserData(formData.email, formData.password, formData.rememberMe, formData.captcha)
     };
 
     if (isAuth) return <Navigate to={'/profile'} />;
@@ -32,7 +36,7 @@ const Login = ({loginUserData, isAuth}) => {
     return (
         <div className={s.formLoginContainer}>
             <h1>Login</h1>
-            <LoginReduxForm onSubmit={handleSubmit} />
+            <LoginReduxForm onSubmit={handleSubmit} captchaUrl={captchaUrl} />
         </div>  
     );
 };
@@ -40,7 +44,8 @@ const Login = ({loginUserData, isAuth}) => {
 const LoginReduxForm = reduxForm({form: 'login'})(FormLogin);
 
 const mapStateToProps = state => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 });
 
 export default connect(mapStateToProps, {loginUserData})(Login);

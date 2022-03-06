@@ -1,12 +1,12 @@
 .bio {
-  display: flex;
+  /* display: flex; */
   margin-bottom: 30px;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .name {
   margin-bottom: 20px;
-  font-family: 'Abril Fatface';
+  font-family: "Abril Fatface";
   font-size: 30px;
   color: #bfd7ed;
 }
