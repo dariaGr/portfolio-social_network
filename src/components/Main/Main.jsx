@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import s from './Main.module.css';
 import ProfileContainer from './Profile/ProfileContainer';
 import News from './News/News';
@@ -15,6 +15,7 @@ const Main = () => {
     <main className={s.main}>
       <React.Suspense fallback={<div>Loading...</div>}>
         <Routes>
+          <Route exact path='/' element={<Navigate to={'/profile'} />} />
           <Route path='/profile/:userId' element={<ProfileContainer />} />
           <Route path='/profile' element={<ProfileContainer />} />
           <Route path='/dialogs' element={<DialogsContainer />} />
@@ -23,6 +24,7 @@ const Main = () => {
           <Route path='/settings' element={<Settings />} />
           <Route path='/find-users' element={<FindUsersContainer />} />
           <Route path='/login' element={<Login />} />
+          <Route path='*' element={<div>404 NOT FOUND</div>} />
         </Routes>
       </React.Suspense>
     </main>
