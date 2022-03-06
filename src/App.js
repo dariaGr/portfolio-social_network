@@ -10,8 +10,17 @@ import store from './redux/redux-store';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends React.Component {
+  catchAllUnhandledErrors = () => {
+    // alert('some error occurred');
+  };
+
   componentDidMount() {
     this.props.initializedApp();
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors);
   };
 
   render() {
