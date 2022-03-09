@@ -1,9 +1,7 @@
-import s from './Message.module.css';
+import s from './Message.module.css'
 
 const Message = ({ text }) => {
-    return (
-        <div>{text}</div>
-    );
-};
+  return <div>{text}</div>
+}
 
-export default Message;
+export default Message
