@@ -1,23 +1,27 @@
 import s from './MyPosts.module.css'
 import { Field, reduxForm } from 'redux-form'
-import { maxLengthCreator, required } from './../../../../../utils/validators'
 import { Textarea } from './../../../../common/FormsControls/FormsControls'
-
-const maxLength10 = maxLengthCreator(10)
+import cn from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencil } from '@fortawesome/free-solid-svg-icons'
 
 const MyPostsForm = props => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          validate={[required, maxLength10]}
+          className={s.MyPostsFormTextarea}
           component={Textarea}
           placeholder='your news...'
           name='newPostText'
         />
       </div>
       <div>
-        <button className={s.sendButton}>Add post</button>
+        <button className={cn(s.sendButton, 'button')}>
+          {' '}
+          <FontAwesomeIcon className={s.faPencil} icon={faPencil} />
+          post
+        </button>
       </div>
     </form>
   )

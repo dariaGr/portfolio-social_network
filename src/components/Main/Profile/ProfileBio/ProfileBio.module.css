@@ -1,19 +1,15 @@
 .bio {
-  /* display: flex; */
   margin-bottom: 30px;
-  /* align-items: center; */
+  text-transform: none;
 }
 
 .name {
   margin-bottom: 20px;
-  font-family: 'Abril Fatface';
   font-size: 30px;
-  color: #bfd7ed;
 }
 
 .list li {
   margin-bottom: 5px;
-  color: #e4eef7;
 }
 
 .list span {
@@ -28,6 +24,50 @@
   max-width: 150px;
   max-height: 150px;
   border-radius: 50%;
-  margin-right: 50px;
   cursor: pointer;
+  margin-bottom: 20px;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.editInput {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.bioTop {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.buttonEdit {
+  padding: 6px 10px;
+}
+
+.profileSaveButton {
+  margin-top: 20px;
+}
+
+.contact {
+  margin-top: 10px;
+}
+
+.contactTitle {
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.ProfileEditButton {
+  margin-top: 20px;
+}
+
+.list span {
+  display: inline-block;
+  margin-bottom: 5px;
 }

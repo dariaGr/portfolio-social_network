@@ -6,12 +6,11 @@ import {
 } from './../../../common/FormsControls/FormsControls'
 import s from './ProfileBio.module.css'
 import c from './../../Login/Login.module.css'
+import cn from 'classnames'
 
 const ProfileDataForm = ({ profile, handleSubmit, error }) => {
   return (
     <form onSubmit={handleSubmit} className={s.description}>
-      <button>save</button>
-      {createField('Name', 'fullName', null, Input, 'text')}
       <div>
         Looking for a job:{' '}
         {createField(
@@ -35,17 +34,20 @@ const ProfileDataForm = ({ profile, handleSubmit, error }) => {
       <div>
         <span>Contacts:</span>{' '}
         {Object.keys(profile.contacts).map(key => {
-          return (
-            <div key={key} className={s.contacts}>
-              <b>
-                {key}:{' '}
-                {createField(key, 'contacts.' + key, null, Input, 'text')}
-              </b>
-            </div>
-          )
+          if (key.startsWith('w') || key.startsWith('g')) {
+            return (
+              <div key={key} className={s.contacts}>
+                <b>
+                  {key}:{' '}
+                  {createField(key, 'contacts.' + key, null, Input, 'text')}
+                </b>
+              </div>
+            )
+          }
         })}
       </div>
       {error && <div className={c.formSummaryError}>{error}</div>}
+      <button className={cn(s.editInput, s.profileSaveButton)}>save</button>
     </form>
   )
 }

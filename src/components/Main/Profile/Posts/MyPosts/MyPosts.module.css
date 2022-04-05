@@ -1,7 +1,20 @@
 .newPost {
-  margin-bottom: 50px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  overflow: hidden;
+  padding: 20px;
 }
 
 .sendButton {
   float: right;
+}
+
+.MyPostsFormTextarea {
+  resize: none;
+}
+
+.faPencil {
+  margin-right: 8px;
 }

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useMatch } from 'react-router-dom'
 import s from './Profile.module.css'
-import PostsContainer from './Posts/PostsContainer'
 import ProfileBio from './ProfileBio/ProfileBio'
 import {
   getUserProfile,
@@ -35,7 +34,6 @@ const ProfileContainer = props => {
           savePhoto={props.savePhoto}
           saveProfile={props.saveProfile}
         />
-        <PostsContainer />
       </div>
     </div>
   )

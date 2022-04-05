@@ -32,11 +32,13 @@ class App extends React.Component {
     }
 
     return (
-      <div className='app-wrapper'>
+      <>
         <HeaderContainer />
-        <Aside />
-        <Main />
-      </div>
+        <div className='app-wrapper'>
+          <Aside />
+          <Main />
+        </div>
+      </>
     )
   }
 }

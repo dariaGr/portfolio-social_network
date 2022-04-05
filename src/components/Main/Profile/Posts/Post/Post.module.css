@@ -10,4 +10,9 @@
 
 .likeButton {
   padding: 8px;
+  text-transform: capitalize;
+}
+
+.faLike {
+  margin-right: 8px;
 }

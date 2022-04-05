@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import s from './Main.module.css'
-import ProfileContainer from './Profile/ProfileContainer'
+import PostsContainer from './Profile/Posts/PostsContainer'
 import News from './News/News'
 import Music from './Music/Music'
 import Settings from './Settings/Settings'
@@ -16,8 +16,8 @@ const Main = () => {
       <React.Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route exact path='/' element={<Navigate to={'/profile'} />} />
-          <Route path='/profile/:userId' element={<ProfileContainer />} />
-          <Route path='/profile' element={<ProfileContainer />} />
+          <Route path='/profile' element={<PostsContainer />} />
+          {/* <Route path='/profile' element={<ProfileContainer />} /> */}
           <Route path='/dialogs' element={<DialogsContainer />} />
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />

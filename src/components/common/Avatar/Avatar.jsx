@@ -1,5 +1,5 @@
 import s from './Avatar.module.css'
-import User from './../../../assets/user.jpg'
+import User from './../../../assets/friend.jpg'
 
 const Avatar = ({ customClass }) => {
   return (

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Ubuntu&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Open+Sans&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 * {
   padding: 0;
@@ -8,13 +9,11 @@
 
 body {
   margin: 0;
-  font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
-  background-color: #89bbd84f;
+  background-color: #f5f7f8;
   color: #f0f8ff;
 }
 
@@ -34,16 +33,44 @@ h4,
 h5,
 h6 {
   font-weight: 400;
+  text-transform: none;
 }
 
-button {
-  padding: 8px 30px;
-  border-radius: 5px;
+h2 {
+  color: #0c1713;
+  font-size: 30px;
+}
+
+.button {
+  padding: 14px 24px;
+  border: none;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: #f0f8ff;
+  background-color: #274472;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: #6a96bdca;
+  color: #0c1713;
+}
+
+.buttonLight {
+  padding: 14px 24px;
   border: none;
   font-family: inherit;
   text-transform: uppercase;
   color: #0c1713;
-  background-color: #bfd7ed;
+  background-color: #f0f8ff;
   font-size: 16px;
   cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.buttonLight:hover {
+  background-color: #a03333;
+  color: #f0f8ff;
 }

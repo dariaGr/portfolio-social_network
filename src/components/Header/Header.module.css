@@ -1,21 +1,35 @@
 .header {
   grid-area: header;
-  background-color: #0c1713;
-  border-radius: 20px;
-}
-
-.header img {
-  width: 80px;
-  padding: 8px;
-  border-radius: 50%;
-}
-
-.header {
+  background-color: #274472;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.loginBlock {
-  padding: 15px;
+.headerMenu {
+  display: flex;
+}
+
+.headerIcon {
+  width: 20px;
+  height: 20px;
+  padding: 13px 24px;
+  transition: all 0.2s ease;
+}
+
+.headerIcon:hover {
+  color: #7091b6;
+}
+
+.headerItem {
+  transition: all 0.2s ease;
+}
+
+.headerItem:hover {
+  background-color: #fff;
+}
+
+.headerButton {
+  margin-left: 30px;
 }

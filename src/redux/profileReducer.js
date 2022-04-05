@@ -26,7 +26,7 @@ const profileReducer = (state = initialState, action) => {
       }
       return {
         ...state,
-        posts: [...state.posts, newPost],
+        posts: [...state.posts, newPost].reverse(),
       }
     case DELETE_POST:
       return {

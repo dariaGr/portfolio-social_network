@@ -4,6 +4,9 @@ import s from './ProfileBio.module.css'
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks'
 import { useState } from 'react'
 import ProfileDataReduxForm from './ProfileDataForm'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencil } from '@fortawesome/free-solid-svg-icons'
+import cn from 'classnames'
 
 const ProfileBio = ({
   profile,
@@ -37,12 +40,26 @@ const ProfileBio = ({
 
   return (
     <div className={s.bio}>
-      {profile.photos.large ? (
-        <img className={s.img} src={profile.photos.large} alt='avatar' />
-      ) : (
-        <Avatar />
-      )}
-      {isOwner && <input type='file' onChange={onMainPhotoSelected} />}
+      <div className={s.bioTop}>
+        <h2>My Profile</h2>
+        {profile.photos.large ? (
+          <img className={s.img} src={profile.photos.large} alt='avatar' />
+        ) : (
+          <Avatar />
+        )}
+        {isOwner && (
+          <div>
+            <label htmlFor='file-upload' className={s.editInput}>
+              Upload
+            </label>
+            <input
+              id='file-upload'
+              type='file'
+              onChange={onMainPhotoSelected}
+            />
+          </div>
+        )}
+      </div>
       <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
       {editMode ? (
         <ProfileDataReduxForm
@@ -64,35 +81,52 @@ const ProfileBio = ({
 const ProfileData = ({ profile, isOwner, goToEditMode = { goToEditMode } }) => {
   return (
     <div className={s.description}>
-      {isOwner && <button onClick={goToEditMode}>edit</button>}
-      <h1 className={s.name}>{profile.fullName}</h1>
+      {/* <h1 className={s.name}>{profile.fullName}</h1> */}
       <ul className={s.list}>
-        <li>About me: {profile.aboutMe}</li>
-        <li>Looking for a job: {profile.lookingForAJob ? 'yes' : 'no'}</li>
+        {/* <li>
+          <FontAwesomeIcon icon={faPencil} /> {profile.aboutMe}
+        </li> */}
+        <li>
+          <span>Looking for a job: &nbsp; </span>
+          {profile.lookingForAJob ? 'yes' : 'no'}
+        </li>
         {profile.lookingForAJob && (
-          <li>My professional skills: {profile.lookingForAJobDescription}</li>
+          <li>
+            <span>My professional skills:</span> <br />
+            {profile.lookingForAJobDescription}
+          </li>
         )}
         <li>
-          <span>Contacts:</span>{' '}
           {Object.keys(profile.contacts).map(key => {
-            return (
-              <Contact
-                key={key}
-                contactTitle={key}
-                contactValue={profile.contacts[key]}
-              />
-            )
+            if (key.startsWith('w') || key.startsWith('g')) {
+              return (
+                <Contact
+                  key={key}
+                  contactTitle={key}
+                  contactValue={profile.contacts[key]}
+                />
+              )
+            }
           })}
         </li>
       </ul>
+      {isOwner && (
+        <button
+          className={cn(s.editInput, s.ProfileEditButton)}
+          onClick={goToEditMode}>
+          edit
+        </button>
+      )}
     </div>
   )
 }
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
-    <div>
-      {contactTitle}: {contactValue}
+    <div className={s.contact}>
+      <span className={s.contactTitle}>{contactTitle}:</span>
+      <br />
+      {contactValue}
     </div>
   )
 }

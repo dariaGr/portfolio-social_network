@@ -1,10 +1,10 @@
 .aside {
   grid-area: aside;
-  background-color: #bfd7ed;
-  border-radius: 10px;
-  font-family: Anton;
-  text-transform: uppercase;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
   color: #0c1713;
+  margin-bottom: 20px;
 }
 
 .imgAside {
@@ -30,9 +30,13 @@
 }
 
 .friends {
-  padding: 8px;
+  padding: 20px;
 }
 
 .nav {
   margin-bottom: 100px;
+}
+
+.friendsAvatar {
+  text-align: center;
 }
